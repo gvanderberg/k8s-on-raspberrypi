@@ -1,3 +1,4 @@
 #!/bin/bash
 
-apt-get update && \
+curl -sSL get.docker.com | sh && \ 
+    usermod pi -aG docker
