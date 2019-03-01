@@ -12,5 +12,5 @@ This is in alphabetical order and has no personal preference associated to the o
 So I started my journey by following this blog post [How to Build a Kubernetes Cluster with ARM Raspberry Pi then run .NET Core on OpenFaas](https://www.hanselman.com/blog/HowToBuildAKubernetesClusterWithARMRaspberryPiThenRunNETCoreOnOpenFaas.aspx) written by [Scott Hanselman](https://www.hanselman.com/).
 
 ```
-curl -sLSf https://github.com/gvanderberg/k8s-on-raspberrypi/blob/master/scripts/setup.sh | sudo sh
+curl -sLSf https://raw.githubusercontent.com/gvanderberg/k8s-on-raspberrypi/master/scripts/setup.sh | sudo sh
 ```
