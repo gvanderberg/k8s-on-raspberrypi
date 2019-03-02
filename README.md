@@ -17,3 +17,7 @@ So this is purely for me to ducument what challenges I ran into and how I overca
 ```
 curl -sLSf https://raw.githubusercontent.com/gvanderberg/k8s-on-raspberrypi/master/scripts/prep.sh | sudo sh
 ```
+
+### Initialize your master node
+
+So the first consideration for me here was the CNI (Container Network Interfaces) which is our Pod-to-Pod communication. I learned the hard way that if you want to use Flannel, you need to initialize your master node with a Pod network CIDR, using WeaveNet that is not required. I'm not sure about the rest as I only played with those 2 options and I ultimately chose Flannel due to the BIG-IP F5 support which was another feature I wanted to play with. For a feature and performance comparison, there is a great article on [itnext.io](https://itnext.io/benchmark-results-of-kubernetes-network-plugins-cni-over-10gbit-s-network-36475925a560).
