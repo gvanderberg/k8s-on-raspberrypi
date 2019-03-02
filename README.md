@@ -15,5 +15,5 @@ With their combined knowledge and experience, I highly doubt I can add much more
 So this is purely for me to ducument what challenges I ran into and how I overcame them and of course, to give credit where credit is due.
 
 ```
-curl -sLSf https://raw.githubusercontent.com/gvanderberg/k8s-on-raspberrypi/master/scripts/setup.sh | sudo sh
+curl -sLSf https://raw.githubusercontent.com/gvanderberg/k8s-on-raspberrypi/master/scripts/prep.sh | sudo sh
 ```
