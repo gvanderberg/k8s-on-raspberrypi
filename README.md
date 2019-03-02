@@ -9,7 +9,10 @@ This is in alphabetical order and has no personal preference associated to the o
 * [Azure](https://azure.microsoft.com/en-us/free/kubernetes-service/)
 * [Google](https://cloud.google.com/kubernetes-engine/)
 
-So I started my journey by following this blog post [How to Build a Kubernetes Cluster with ARM Raspberry Pi then run .NET Core on OpenFaas](https://www.hanselman.com/blog/HowToBuildAKubernetesClusterWithARMRaspberryPiThenRunNETCoreOnOpenFaas.aspx) written by [Scott Hanselman](https://www.hanselman.com/).
+So I started my journey by following this blog post [How to Build a Kubernetes Cluster with ARM Raspberry Pi then run .NET Core on OpenFaas](https://www.hanselman.com/blog/HowToBuildAKubernetesClusterWithARMRaspberryPiThenRunNETCoreOnOpenFaas.aspx) written by [Scott Hanselman](https://www.hanselman.com/) and there I was introduced to [Alex Ellis'](https://blog.alexellis.io/) blog post [Build your own bare-metal ARM cluster](https://blog.alexellis.io/build-your-own-bare-metal-arm-cluster/). 
+With their combined knowledge and experience, I highly doubt I can add much more value to this topic. 
+
+So this is purely for me to ducument what challenges I ran into and how I overcame them and of course, to give credit where credit is due.
 
 ```
 curl -sLSf https://raw.githubusercontent.com/gvanderberg/k8s-on-raspberrypi/master/scripts/setup.sh | sudo sh
