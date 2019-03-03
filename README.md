@@ -24,4 +24,9 @@ So the first consideration for me here was the CNI (Container Network Interfaces
 
 ### Installing Kubernetes dashboard
 
-[Kubernetes dashboard](https://github.com/kubernetes/dashboard/wiki/Installation)
+[Dashboard Installation](https://github.com/kubernetes/dashboard/wiki/Installation)
+[User Token](https://github.com/kubernetes/dashboard/wiki/Creating-sample-user)
+
+```
+http://localhost:8001/api/v1/namespaces/kube-system/services/https:kubernetes-dashboard-head:/proxy/
+```
