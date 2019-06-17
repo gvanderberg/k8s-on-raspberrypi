@@ -33,14 +33,6 @@ static domain_name_servers=192.168.8.1 8.8.8.8
 curl -sLSf https://raw.githubusercontent.com/gvanderberg/k8s-on-raspberrypi/master/scripts/prep.sh | sudo sh
 ```
 
-So the first consideration for me here was the CNI (Container Network Interfaces) which is our Pod-to-Pod communication. I learned the hard way that if you want to use Flannel, you need to initialize your master node with a Pod network CIDR, using WeaveNet that is not required. I'm not sure about the rest as I only played with those 2 options and I ultimately chose Flannel. For a feature and performance comparison, there is a great article on [itnext.io](https://itnext.io/benchmark-results-of-kubernetes-network-plugins-cni-over-10gbit-s-network-36475925a560).
-
-### Installing Kubernetes dashboard
-
-```
-kubectl set image deployment/kubernetes-dashboard kubernetes-dashboard=k8s.gcr.io/kubernetes-dashboard-arm:v1.10.1 -n kube-system
-```
-
 * Pre-pull images
 
 ```
@@ -86,6 +78,14 @@ On each node that joins including the master:
 
 ```
 sudo sysctl net.bridge.bridge-nf-call-iptables=1
+```
+
+So the first consideration for me here was the CNI (Container Network Interfaces) which is our Pod-to-Pod communication. I learned the hard way that if you want to use Flannel, you need to initialize your master node with a Pod network CIDR, using WeaveNet that is not required. I'm not sure about the rest as I only played with those 2 options and I ultimately chose Flannel. For a feature and performance comparison, there is a great article on [itnext.io](https://itnext.io/benchmark-results-of-kubernetes-network-plugins-cni-over-10gbit-s-network-36475925a560).
+
+### Installing Kubernetes dashboard
+
+```
+kubectl set image deployment/kubernetes-dashboard kubernetes-dashboard=k8s.gcr.io/kubernetes-dashboard-arm:v1.10.1 -n kube-system
 ```
 
 * [Dashboard Installation](https://github.com/kubernetes/dashboard/wiki/Installation)
