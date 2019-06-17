@@ -41,6 +41,53 @@ So the first consideration for me here was the CNI (Container Network Interfaces
 kubectl set image deployment/kubernetes-dashboard kubernetes-dashboard=k8s.gcr.io/kubernetes-dashboard-arm:v1.10.1 -n kube-system
 ```
 
+* Pre-pull images
+
+```
+sudo kubeadm config images pull -v3
+```
+
+* For flannel to work correctly, you must pass ```--pod-network-cidr=10.244.0.0/24``` to kubeadm init.
+* Set ```/proc/sys/net/bridge/bridge-nf-call-iptables``` to ```1``` by running ```sysctl net.bridge.bridge-nf-call-iptables=1``` to pass bridged IPv4 traffic to iptables’ chains. This is a requirement for some CNI plugins to work.
+
+```
+sudo kubeadm init --token-ttl=0 --pod-network-cidr=10.244.0.0/24
+```
+
+We pass in `--token-ttl=0` so that the token never expires - do not use this setting in production. The UX for `kubeadm` means it's currently very hard to get a join token later on after the initial token has expired. 
+
+> Optionally also pass `--apiserver-advertise-address=192.168.8.200` with the IP of the Pi as found by typing `ifconfig`.
+
+After the `init` is complete run the snippet given to you on the command-line:
+
+```
+mkdir -p $HOME/.kube
+sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
+sudo chown $(id -u):$(id -g) $HOME/.kube/config
+```
+
+* Now save your join-token
+
+Your join token is valid for 24 hours, so save it into a text file. Here's an example of mine:
+
+```
+sudo kubeadm join 192.168.8.200:6443 --token fr4eq0.5xys4i4rft5p95jd --discovery-token-ca-cert-hash sha256:4bd8f69e17af5643c5a1513ba8c74dbaa4dad1b40d7c63926424f6e647109574
+```
+
+### Setup networking with Flannel
+
+* [Flannel CNI](https://kubernetes.io/docs/setup/production-environment/tools/kubeadm/create-cluster-kubeadm/#tabs-pod-install-4)
+
+```
+kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/master/Documentation/kube-flannel.yml
+```
+
+On each node that joins including the master:
+
+```
+sudo sysctl net.bridge.bridge-nf-call-iptables=1
+```
+
 * [Dashboard Installation](https://github.com/kubernetes/dashboard/wiki/Installation)
 * [Dashboard Access Token](https://github.com/kubernetes/dashboard/wiki/Creating-sample-user)
 
