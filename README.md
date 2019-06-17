@@ -63,7 +63,7 @@ sudo chown $(id -u):$(id -g) $HOME/.kube/config
 Your join token is valid for 24 hours, so save it into a text file. Here's an example of mine:
 
 ```
-sudo kubeadm join 192.168.8.200:6443 --token fr4eq0.5xys4i4rft5p95jd --discovery-token-ca-cert-hash sha256:4bd8f69e17af5643c5a1513ba8c74dbaa4dad1b40d7c63926424f6e647109574
+sudo kubeadm join 192.168.8.200:6443 --token 648fsd.k9ss7yhfjlnkcxyb --discovery-token-ca-cert-hash sha256:4b508d932fab6a84bf216afb5acaed6d427f9fbbacac2b57b70135bdb3c6c883
 ```
 
 ### Setup networking with Flannel
