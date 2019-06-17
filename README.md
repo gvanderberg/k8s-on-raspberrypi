@@ -14,6 +14,19 @@ With their combined knowledge and experience, I highly doubt I can add much more
 
 So this is purely for me to ducument what challenges I ran into and how I overcame them and of course, to give credit where credit is due.
 
+### Set static ip address
+
+```
+sudo nano /etc/dhcpcd.conf
+```
+
+```
+profile static_eth0
+static ip_address=192.168.8.200/24
+static routers=192.168.8.1
+static domain_name_servers=192.168.8.1 8.8.8.8
+```
+
 ```
 curl -sLSf https://raw.githubusercontent.com/gvanderberg/k8s-on-raspberrypi/master/scripts/prep.sh | sudo sh
 ```
