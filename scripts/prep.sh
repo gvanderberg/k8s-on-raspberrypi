@@ -2,8 +2,8 @@
 
 echo 1\) Install Docker
 
-curl -sSL get.docker.com | sh && \
-sudo usermod pi -aG docker
+curl -fSLs https://get.docker.com | sh && \
+usermod pi -aG docker
 
 echo 2\) Disable swap
 
