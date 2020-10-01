@@ -71,7 +71,7 @@ sudo kubeadm join 192.168.8.200:6443 --token 648fsd.k9ss7yhfjlnkcxyb --discovery
 * [Flannel CNI](https://kubernetes.io/docs/setup/production-environment/tools/kubeadm/create-cluster-kubeadm/#tabs-pod-install-4)
 
 ```
-kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/master/Documentation/kube-flannel.yml
+curl -sSL https://raw.githubusercontent.com/coreos/flannel/master/Documentation/kube-flannel.yml | sed "s/amd64/arm/g" | kubectl create -f -
 ```
 
 On each node that joins including the master:
