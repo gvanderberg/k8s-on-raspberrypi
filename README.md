@@ -39,7 +39,7 @@ curl -sLSf https://raw.githubusercontent.com/gvanderberg/k8s-on-raspberrypi/mast
 sudo kubeadm config images pull -v3
 ```
 
-* For flannel to work correctly, you must pass ```--pod-network-cidr=10.244.0.0/24``` to kubeadm init.
+* For flannel to work correctly, you must pass ```--pod-network-cidr=10.244.0.0/16``` to kubeadm init.
 * Set ```/proc/sys/net/bridge/bridge-nf-call-iptables``` to ```1``` by running ```sysctl net.bridge.bridge-nf-call-iptables=1``` to pass bridged IPv4 traffic to iptables’ chains. This is a requirement for some CNI plugins to work.
 
 ```
