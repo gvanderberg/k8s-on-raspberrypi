@@ -18,6 +18,8 @@ echo "deb http://apt.kubernetes.io/ kubernetes-xenial main" | tee /etc/apt/sourc
 apt-get update -q && \
   apt-get install -qy kubeadm
 
+apt-mark hold kubeadm kubectl kubelet kubernetes-cni
+
 echo 4\) Adding " cgroup_enable=cpuset cgroup_memory=1 cgroup_enable=memory" to /boot/cmdline.txt
 
 cp /boot/cmdline.txt /boot/cmdline_backup.txt
